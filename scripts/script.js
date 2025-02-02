@@ -89,7 +89,7 @@ function guess(e)
 
 function startNewGame()
 {
-    scoreCounter.innerHTML = 0;
+    playerScore = 0;
     statusDisplay.innerHTML = "Waiting!"
     statusDisplay.classList.remove("correct")
     statusDisplay.classList.remove("incorrect")

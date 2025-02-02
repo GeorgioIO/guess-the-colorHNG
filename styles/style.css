@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* General reset */
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* ANIMATIONS */
+@keyframes appear
+{
+    0%
+    {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    50%
+    {
+        transform: translateX(50px);
+    }
+
+    100%
+    {
+        opacity: 1;
+        transform: translateX(0);
+
+    }
+}
+
+@keyframes waiting
+{
+    0%
+    {
+        transform: translateX(0);
+    }
+
+    50%
+    {
+        transform: translateX(3px);
+    }
+
+    100%
+    {
+        transform: translateX(0);
+    }
+}
+
+.appear-animation
+{
+    animation: appear forwards 800ms;
+}
+
+.waiting-animation
+{
+    animation: waiting infinite ease-in 1.5s;
+}
+/* VARIABLES */
+:root
+{
+    --control-grey : #D9D9D9;
+    --general-font : "Inter", serif;
+}
+
+/* HTML + BODY */
+html
+{
+    height: 100%;
+}
+
+body
+{
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--general-font);
+    gap: 30px;
+    padding: 10px;
+    overflow: hidden;
+    perspective: 800px;
+
+}
+/* GENERAL STYLES */
+
+/* STYLING */
+.game-container
+{
+    width: 400px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border: 5px solid black;
+    border-radius: 2rem;
+    padding: 25px 0px 25px 0px;
+    opacity: 0;
+    box-shadow: 0px 0px 30px 0px rgba(49, 42, 42, 0.342);
+    transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+    transform-style: preserve-3d;
+    transform-origin: center;
+    position: relative;
+}
+
+.game-container > .targetColor 
+{
+    background-color: var(--control-grey);
+    width: 100%;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+}
+
+.game-container > .state
+{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    align-self: flex-start;
+    padding-left: 25px;
+}
+
+.game-container > .options-grid
+{
+    display: grid;
+    grid-template-columns: repeat(3 , 100px);
+    grid-template-rows: repeat(2 , 50px);
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+}
+
+.options-grid > button
+{
+    cursor: pointer;
+    border: none;
+}
+
+.control
+{
+    width: 200px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 5px solid black;
+    padding: 10px;
+    opacity: 0;
+
+}
+
+.control > .score
+{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.score > p
+{
+    font-weight: bold;
+}
+
+.score > .scoreDisplay
+{
+    width: 30px;
+    height: 30px;
+    background-color: var(--control-grey);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.control > button
+{
+    background-color: var(--control-grey);
+    border: none;
+    outline: none;
+    height: 40px;
+    font-weight: bold;
+    font-family: var(--general-font);
+    font-size: 1.15rem;
+    cursor: pointer;
+}
+/* MEDIA QUERIES */
+
+@media (max-width : 600px)
+{
+    body
+    {
+        flex-direction: column;
+    }
+
+    .game-container
+    {
+        width: 100%;
+    }
+}
+
+@media (max-width : 400px)
+{
+    .game-container > .options-grid
+    {
+        grid-template-columns: repeat(3 , 1fr);
+    }
+}

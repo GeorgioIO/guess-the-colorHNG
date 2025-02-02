@@ -71,12 +71,14 @@ function guess(e)
     if(e.currentTarget.dataset.correct === "true")
     {
         playerScore++;
+        statusDisplay.classList.remove("incorrect")
         statusDisplay.classList.add("correct");
         statusDisplay.innerHTML = "Correct!";
         scoreCounter.innerHTML = playerScore
     }
     else
     {
+        statusDisplay.classList.remove("correct")
         statusDisplay.classList.add("incorrect");
         statusDisplay.innerHTML = "Wrong!"
         scoreCounter.innerHTML = playerScore

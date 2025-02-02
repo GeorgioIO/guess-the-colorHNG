@@ -85,6 +85,15 @@ body
 
 }
 /* GENERAL STYLES */
+.correct
+{
+    color: green;
+}
+
+.incorrect
+{
+    color: red;
+}
 
 /* STYLING */
 .game-container
@@ -137,6 +146,8 @@ body
     gap: 20px;
 }
 
+
+
 .options-grid > button
 {
     cursor: pointer;
@@ -168,6 +179,10 @@ body
     font-weight: bold;
 }
 
+.status
+{
+    font-weight: 900;
+}
 .score > .scoreDisplay
 {
     width: 30px;

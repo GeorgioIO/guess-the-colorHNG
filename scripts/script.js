@@ -71,20 +71,26 @@ function guess(e)
     if(e.currentTarget.dataset.correct === "true")
     {
         playerScore++;
+        statusDisplay.classList.add("correct");
         statusDisplay.innerHTML = "Correct!";
         scoreCounter.innerHTML = playerScore
     }
     else
     {
+        statusDisplay.classList.add("incorrect");
         statusDisplay.innerHTML = "Wrong!"
         scoreCounter.innerHTML = playerScore
     }
+
+    playRound()
 }
 
 function startNewGame()
 {
     scoreCounter.innerHTML = 0;
     statusDisplay.innerHTML = "Waiting!"
+    statusDisplay.classList.remove("correct")
+    statusDisplay.classList.remove("incorrect")
     alert("New game has started");
 }
 
@@ -102,6 +108,10 @@ function getRandomIndex(array)
 }
 
 
-window.addEventListener("click" , () => {
+window.addEventListener("click" , launchGame)
+
+function launchGame()
+{
     playRound()
-})
+    window.removeEventListener("click" , launchGame)
+}

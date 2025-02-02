@@ -203,6 +203,7 @@ body
     font-family: var(--general-font);
     font-size: 1.15rem;
     cursor: pointer;
+    color: black;
 }
 /* MEDIA QUERIES */
 

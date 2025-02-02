@@ -109,9 +109,11 @@ function getRandomIndex(array)
 
 
 window.addEventListener("click" , launchGame)
+window.addEventListener("touchstart", launchGame);
 
 function launchGame()
 {
     playRound()
     window.removeEventListener("click" , launchGame)
+    window.removeEventListener("touchstart", launchGame);
 }

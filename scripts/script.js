@@ -6,6 +6,8 @@ const newGameBtn = document.querySelector(".newGameBtn")
 const targetBox = document.querySelector(".targetColor");
 const buttonsGrid = document.querySelector(".options-grid")
 const statusDisplay = document.querySelector(".status");
+const checkIcon = document.querySelector(".checkicon").cloneNode(true);
+
 let playerScore = 0;
 
 colors = 
@@ -71,17 +73,25 @@ function guess(e)
     if(e.currentTarget.dataset.correct === "true")
     {
         playerScore++;
-        statusDisplay.classList.remove("incorrect")
+        statusDisplay.classList.remove("incorrect");
         statusDisplay.classList.add("correct");
         statusDisplay.innerHTML = "Correct!";
-        scoreCounter.innerHTML = playerScore
+        statusDisplay.appendChild(checkIcon)
+        checkIcon.classList.add("check-animation");
+        scoreCounter.innerHTML = playerScore;
     }
     else
     {
-        statusDisplay.classList.remove("correct")
+        statusDisplay.classList.remove("correct");
         statusDisplay.classList.add("incorrect");
-        statusDisplay.innerHTML = "Wrong!"
-        scoreCounter.innerHTML = playerScore
+        statusDisplay.classList.remove("shake-animation")
+        
+        setTimeout(() => {
+            statusDisplay.classList.add("shake-animation");
+        } , 10);
+
+        statusDisplay.innerHTML = "Wrong!";
+        scoreCounter.innerHTML = playerScore;
     }
 
     playRound()
@@ -90,6 +100,7 @@ function guess(e)
 function startNewGame()
 {
     playerScore = 0;
+    scoreCounter.innerHTML = playerScore;
     statusDisplay.innerHTML = "Waiting!"
     statusDisplay.classList.remove("correct")
     statusDisplay.classList.remove("incorrect")

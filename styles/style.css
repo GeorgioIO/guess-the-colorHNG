@@ -48,6 +48,40 @@
     }
 }
 
+@keyframes shake
+{
+    0% {transform: translate(0);}
+    20% {transform: translate(-5px);}
+    40% {transform : translate(5px);}
+    60% {transform: translate(-5px);}
+    80% {transform: translate(5px);}
+    100% {transform: translate(0);}
+}
+
+@keyframes checkAppear 
+{
+    0%
+    {
+        transform: translateX(20px);
+    }    
+
+    100%
+    {
+        transform: translateX(0);
+    }
+}
+
+.check-animation
+{
+    animation: checkAppear 0.2s ease-in forwards;
+}
+
+.shake-animation
+{
+    display: inline-block;
+    animation: shake 0.5s ease-in-out;
+}
+
 .appear-animation
 {
     animation: appear forwards 800ms;
@@ -110,10 +144,7 @@ body
     padding: 25px 0px 25px 0px;
     opacity: 0;
     box-shadow: 0px 0px 30px 0px rgba(49, 42, 42, 0.342);
-    transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
-    transform-style: preserve-3d;
-    transform-origin: center;
-    position: relative;
+    transform: translate(0);
 }
 
 .game-container > .targetColor 
@@ -182,6 +213,15 @@ body
 .status
 {
     font-weight: 900;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+}
+
+.checkicon
+{
+    transform: translateX(20px);
 }
 .score > .scoreDisplay
 {

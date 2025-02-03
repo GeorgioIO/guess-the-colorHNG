@@ -95,7 +95,11 @@
 :root
 {
     --control-grey : #D9D9D9;
+    --containers-bgcolor : white;
+    --body-leftcolor : rgb(7, 255, 255);
+    --body-rightcolor : rgb(0, 255, 213);
     --general-font : "Inter", serif;
+    --borders-color : black;
 }
 
 /* HTML + BODY */
@@ -115,8 +119,7 @@ body
     gap: 30px;
     padding: 10px;
     overflow: hidden;
-    perspective: 800px;
-
+    background: linear-gradient(to right , var(--body-leftcolor) , var(--body-rightcolor));
 }
 /* GENERAL STYLES */
 .correct
@@ -139,12 +142,13 @@ body
     justify-content: center;
     align-items: center;
     gap: 20px;
-    border: 5px solid black;
+    border: 5px solid var(--borders-color);
     border-radius: 2rem;
     padding: 25px 0px 25px 0px;
     opacity: 0;
     box-shadow: 0px 0px 30px 0px rgba(49, 42, 42, 0.342);
     transform: translate(0);
+    background-color: var(--containers-bgcolor);
 }
 
 .game-container > .targetColor 
@@ -182,7 +186,8 @@ body
 .options-grid > button
 {
     cursor: pointer;
-    border: none;
+    border: 1px solid var(--borders-color);
+
 }
 
 .control
@@ -192,10 +197,10 @@ body
     display: flex;
     flex-direction: column;
     gap: 20px;
-    border: 5px solid black;
+    border: 5px solid var(--borders-color);
     padding: 10px;
     opacity: 0;
-
+    background-color: var(--containers-bgcolor);
 }
 
 .control > .score

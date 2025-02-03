@@ -33,8 +33,10 @@ window.addEventListener("DOMContentLoaded" , (event) => {
 })
 
 newGameBtn.addEventListener("click" , startNewGame);
+window.addEventListener("click" , launchGame)
+window.addEventListener("touchstart", launchGame);
 
-
+// Game functions
 function playRound()
 {
     buttonsGrid.innerHTML = ""
@@ -99,20 +101,29 @@ function guess(e)
 
 function startNewGame()
 {
-    playerScore = 0;
-    scoreCounter.innerHTML = playerScore;
-    statusDisplay.innerHTML = "Waiting!"
-    statusDisplay.classList.remove("correct")
-    statusDisplay.classList.remove("incorrect")
+    location.reload(true);
     alert("New game has started");
 }
 
+function launchGame()
+{
+    playRound()
+    window.removeEventListener("click" , launchGame)
+    window.removeEventListener("touchstart", launchGame);
+}
+
+
+// Utilities functions
 function createVariant(color)
 {
-    let rgb = color.split(","); // array from the rgb
-    let randomRGB = rgb[getRandomIndex(rgb)]; // get random from red , green , blue
-    let newVal = parseInt(randomRGB) + (Math.floor(Math.random() * 230) - 5);
-    return String(rgb).replace(randomRGB , newVal)
+    
+    let rgb = color.split(",").map(num => parseInt(num.trim())); // array for the channels (int)
+    for(let i = 0 ; i < 3 ; i++)
+    {
+        // change the range of channel by 50
+        rgb[i] += Math.floor(Math.random() * 100) - 50; 
+    }
+    return rgb.join(",")
 }
 
 function getRandomIndex(array)
@@ -121,12 +132,5 @@ function getRandomIndex(array)
 }
 
 
-window.addEventListener("click" , launchGame)
-window.addEventListener("touchstart", launchGame);
 
-function launchGame()
-{
-    playRound()
-    window.removeEventListener("click" , launchGame)
-    window.removeEventListener("touchstart", launchGame);
-}
+

@@ -7,7 +7,8 @@ const targetBox = document.querySelector(".targetColor");
 const buttonsGrid = document.querySelector(".options-grid")
 const statusDisplay = document.querySelector(".status");
 const checkIcon = document.querySelector(".checkicon").cloneNode(true);
-
+const defaultOptions = document.querySelector(".options-grid").innerHTML;
+console.log(defaultOptions)
 let playerScore = 0;
 
 colors = 
@@ -101,7 +102,16 @@ function guess(e)
 
 function startNewGame()
 {
-    location.reload(true);
+    playerScore = 0
+    scoreCounter.innerHTML = playerScore;
+    statusDisplay.classList.remove("correct");
+    statusDisplay.classList.remove("incorrect");
+    statusDisplay.innerHTML = "Waiting...";
+    window.addEventListener("click" , launchGame)
+    window.addEventListener("touchstart", launchGame);
+    console.log(defaultOptions)
+    document.querySelector(".options-grid").innerHTML = defaultOptions;
+    
     alert("New game has started");
 }
 

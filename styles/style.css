@@ -118,7 +118,7 @@ body
     font-family: var(--general-font);
     gap: 30px;
     padding: 10px;
-    overflow: hidden;
+    overflow-y: scroll;
     background: linear-gradient(to right , var(--body-leftcolor) , var(--body-rightcolor));
 }
 /* GENERAL STYLES */
@@ -131,6 +131,7 @@ body
 {
     color: red;
 }
+
 
 /* STYLING */
 .game-container
@@ -160,6 +161,13 @@ body
     justify-content: center;
     align-items: center;
     font-size: 32px;
+}
+
+.game-container > h2
+{
+    align-self: flex-start;
+    padding-left: 25px;
+    font-size: 20px;
 }
 
 .game-container > .state

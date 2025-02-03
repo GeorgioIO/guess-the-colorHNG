@@ -121,7 +121,12 @@ function createVariant(color)
     for(let i = 0 ; i < 3 ; i++)
     {
         // change the range of channel by 50
-        rgb[i] += Math.floor(Math.random() * 100) - 50; 
+        let randomValue = Math.round(Math.random());
+        if (randomValue === 0) {
+            rgb[i] = lightenChannel(rgb[i]); 
+        } else {
+            rgb[i] = darkenChannel(rgb[i]); 
+        }
     }
     return rgb.join(",")
 }
@@ -131,6 +136,26 @@ function getRandomIndex(array)
     return Math.floor(Math.random() * array.length)
 }
 
+
+function lightenChannel(channel)
+{
+    let newVal = channel + Math.floor(Math.random() * 255);
+    if(newVal >= 255)
+    {
+        newVal = 255;
+    }
+    return newVal
+}
+
+function darkenChannel(channel)
+{
+    let newVal = channel - Math.floor(Math.random() * 255);
+    if(newVal <= 0)
+    {
+        newVal = 0;
+    }
+    return newVal
+}
 
 
 

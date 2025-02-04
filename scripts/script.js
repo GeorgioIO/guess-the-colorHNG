@@ -25,12 +25,11 @@ colors =
     "129, 67, 240","192, 137, 110","183, 246, 182","218, 233, 37","39, 179, 51",
 ]
 
-window.addEventListener("DOMContentLoaded" , (event) => {
+window.addEventListener("DOMContentLoaded" , () => {
     controlPanel.classList.add("appear-animation");
     gamePanel.classList.add("appear-animation");
     arrow.classList.add("waiting-animation");
     scoreCounter.innerHTML = 0;
-    
 })
 
 newGameBtn.addEventListener("click" , startNewGame);
@@ -38,17 +37,14 @@ window.addEventListener("click" , launchGame)
 window.addEventListener("touchstart", launchGame);
 
 // Game functions
-function playRound()
-{
+function playRound() {
     buttonsGrid.innerHTML = ""
     targetBox.innerHTML = ""
     let randomIndex = getRandomIndex(colors);
     let randomColor = colors[randomIndex];
     targetBox.style.backgroundColor = `rgb(${randomColor})`;
     let correctColorIndex = Math.floor(Math.random() * 6) + 1;
-    for(let i = 1 ; i <= 6 ; i++)
-    {
-
+    for (let i = 1 ; i <= 6 ; i++) {
         const button = document.createElement("button");
         button.setAttribute("data-testid" , "colorOption")
         button.classList.add("options")

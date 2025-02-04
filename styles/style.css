@@ -7,7 +7,16 @@
   box-sizing: border-box;
 }
 
-/* ANIMATIONS */
+:root {
+  --control-grey: #d9d9d9;
+  --containers-bgcolor: white;
+  --body-leftcolor: rgb(7, 255, 255);
+  --body-rightcolor: rgb(0, 255, 213);
+  --general-font: "Inter", serif;
+  --borders-color: black;
+}
+
+/* Animations */
 @keyframes appear {
   0% {
     opacity: 0;
@@ -85,15 +94,6 @@
 .waiting-animation {
   animation: waiting infinite ease-in 1.5s;
 }
-/* VARIABLES */
-:root {
-  --control-grey: #d9d9d9;
-  --containers-bgcolor: white;
-  --body-leftcolor: rgb(7, 255, 255);
-  --body-rightcolor: rgb(0, 255, 213);
-  --general-font: "Inter", serif;
-  --borders-color: black;
-}
 
 /* HTML + BODY */
 html {
@@ -116,7 +116,8 @@ body {
     var(--body-rightcolor)
   );
 }
-/* GENERAL STYLES */
+
+/* General Styles */
 .correct {
   color: green;
 }
@@ -125,7 +126,7 @@ body {
   color: red;
 }
 
-/* STYLING */
+/* Styles */
 .game-container {
   width: 400px;
   height: auto;
@@ -185,7 +186,7 @@ body {
 }
 
 .options-grid > button:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .control {
@@ -222,6 +223,7 @@ body {
 .checkicon {
   transform: translateX(20px);
 }
+
 .score > .scoreDisplay {
   width: 30px;
   height: 30px;
@@ -244,7 +246,6 @@ body {
   cursor: pointer;
   color: black;
 }
-/* MEDIA QUERIES */
 
 @media (max-width: 600px) {
   body {

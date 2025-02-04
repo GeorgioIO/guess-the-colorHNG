@@ -180,6 +180,12 @@ body {
 .options-grid > button {
   cursor: pointer;
   border: 1px solid var(--borders-color);
+  border-radius: 10px;
+  transition: 150ms ease-in-out;
+}
+
+.options-grid > button:hover {
+    transform: scale(1.1);
 }
 
 .control {

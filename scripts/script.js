@@ -33,8 +33,9 @@ window.addEventListener("DOMContentLoaded" , () => {
 })
 
 newGameBtn.addEventListener("click" , startNewGame);
-window.addEventListener("click" , launchGame)
-window.addEventListener("touchstart", launchGame);
+window.onload = () => {
+    launchGame();
+}
 
 // Game functions
 function playRound() {
@@ -162,6 +163,3 @@ function darkenChannel(channel)
     }
     return newVal
 }
-
-
-
